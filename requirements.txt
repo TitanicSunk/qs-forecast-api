@@ -1,0 +1,5 @@
+flask
+yfinance
+prophet
+matplotlib
+pandas
