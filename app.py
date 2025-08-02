@@ -8,6 +8,9 @@ import io
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "<h1>Welcome to the QS Forecast API</h1><p>Try <a href='/api/qs-chart'>/api/qs-chart</a> or <a href='/api/qs-trend'>/api/qs-trend</a></p>"
 # -------------------------------
 # API Endpoint 1: JSON forecast
 # -------------------------------
@@ -93,5 +96,6 @@ if __name__ == "__main__":
 
 port = int(os.environ.get("PORT", 5000))
 app.run(host='0.0.0.0', port=port, debug=True)
+
 
 
