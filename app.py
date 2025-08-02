@@ -33,8 +33,8 @@ def qs_trend():
         future = model.make_future_dataframe(periods=90)  # 3-month forecast
         forecast = model.predict(future)
 
-        # Return last 30 forecasted results
-        result = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(30)
+        # Return last 90 forecasted results
+        result = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(90)
         return jsonify(result.to_dict(orient="records"))
 
     except Exception as e:
@@ -96,6 +96,7 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
+
 
 
 
